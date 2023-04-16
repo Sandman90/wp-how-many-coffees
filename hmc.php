@@ -6,6 +6,7 @@
  * Version: 1.0.0
  * Author: Andrea Epifano (aka Sandman)
  * Author URI: https://www.sandbay.it/home/
+ * License: GPLv3
  **/
 // BASIC SECURITY
 defined( 'ABSPATH' ) or die( 'Unauthorized Access!' );
