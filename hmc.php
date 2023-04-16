@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: How Many Coffees
- * Plugin URI: https://www.sandbay.it/home/
+ * Plugin URI: https://www.sandbay.it/gallery-tools/asset-tool/wp-how-many-coffees/
  * Description: How many coffees spent to finish a certain task? Now you can quantify them thanks to the widget associated with each post. You can also use this widget to quantify other quantities such as sugar, for example, or the amount of spoons of a certain ingredient needed.
  * Version: 1.0.0
  * Author: Andrea Epifano (aka Sandman)
