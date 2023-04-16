@@ -6,7 +6,7 @@ The difficulty is indicated in coffee (with a lot of aroma).
 
 **Home link:** https://www.sandbay.it/home/
 
-**Tags:** quantity, task management
+**Tags:** quantity, task management, rate posts
 
 **Requires at least:** 5.7
 
@@ -14,9 +14,9 @@ The difficulty is indicated in coffee (with a lot of aroma).
 
 **Stable tag:** 5.7
 
-**License:** GPLv3
+**License:** GPLv2
 
-**License URI:** http://www.gnu.org/licenses/gpl-3.0.html
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
 
 ## Description
@@ -30,8 +30,9 @@ With this plugin you can:
 
 ## Installation
 This section describes how to install the plugin and get it working.
-1. Upload [`how-many-coffees`](https://github.com/Sandman90/wp-how-many-coffees) to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
+1. Upload [`how-many-coffees`](https://github.com/Sandman90/wp-how-many-coffees) to the `/wp-content/plugins/` directory.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Plugin adds sub level menu 'How Many Coffees' where you can start using it.
 
 ### Frequently Asked Questions
 - **Are there basic style variations?**
@@ -57,7 +58,7 @@ icons from external libraries, inserting them in the configuration.
 
 ### License
 
-The Wordpress "How Many Coffees" plugin is licensed under the GPL v3.
+The Wordpress "How Many Coffees" plugin is licensed under the GPL v2 or later.
 
 > This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License, version 3, as published by the Free Software Foundation.
 
@@ -65,4 +66,4 @@ The Wordpress "How Many Coffees" plugin is licensed under the GPL v3.
 
 > You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
-A copy of the license is included in the root of the plugin’s directory. The file is named `LICENSE.txt`.
+A copy of the license is included in the root of the plugin’s directory. The file is named `license.txt`.
