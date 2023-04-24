@@ -1,5 +1,5 @@
 # How Many Coffees
-"How Many Coffees" ☕ tells users how many coffees they will need to spend on an activity.
+The Wordpress plugin "How Many Coffees" ☕ tells users how many coffees they will need to spend on an activity.
 The difficulty is indicated in coffee (with a lot of aroma).
 
 **Contributors:** Andrea Epifano (aka Sandman)
