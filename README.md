@@ -8,11 +8,11 @@ The difficulty is indicated in coffee (with a lot of aroma).
 
 **Tags:** quantity, task management, rate posts
 
-**Requires at least:** 5.7
+**Requires at least:** 5.0
 
-**Tested up to:** 5.7
+**Tested up to:** 6.2
 
-**Stable tag:** 5.7
+**Stable tag:** 1.0.0
 
 **License:** GPLv2
 
