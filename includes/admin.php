@@ -187,7 +187,8 @@ function hmc_icon_cb( $args ) {
       id="<?php echo esc_attr( $args['label_for'] ); ?>"
       data-custom="<?php echo esc_attr( $args['hmc_custom_data'] ); ?>"
       name="hmc_options[<?php echo esc_attr( $args['label_for'] ); ?>]">
-    <?php foreach (get_icons() as $icon => $value) { ?>
+    <?php $hmc_get_icons = hmc_get_icons();
+      foreach ($hmc_get_icons as $icon => $value) { ?>
     <option value="<?php echo $icon ?>" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ esc_attr( $args['label_for'] ) ],
         $icon, false ) ) : ( '' ); ?>>
       <?php esc_html_e( $icon, 'hmc' ); ?>

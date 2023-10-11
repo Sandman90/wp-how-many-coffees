@@ -35,7 +35,7 @@ if ( !defined('HMC_PLUGIN_DIR') ) {
         $total_difficulty = '';
         $difficulty_icon = (!empty($hmc_options['hmc_custom_icon']) && strlen($hmc_options['hmc_custom_icon']) > 1)
             ? '<i class="' . $hmc_options['hmc_custom_icon'] . '"></i>'
-            : get_icons(isset($hmc_options['hmc_icon']) ? $hmc_options['hmc_icon'] : 'coffee');
+            : hmc_get_icons(isset($hmc_options['hmc_icon']) ? $hmc_options['hmc_icon'] : 'coffee');
         $label = isset($hmc_options['hmc_label']) ? $hmc_options['hmc_label'] . ' ' : '';
         $classes = isset($hmc_options['hmc_custom_classes']) ? $hmc_options['hmc_custom_classes'] . ' ' : '';
         $quantity = $hmc_meta['difficulty'] ? $hmc_meta['difficulty'] : 0;
@@ -45,7 +45,7 @@ if ( !defined('HMC_PLUGIN_DIR') ) {
           }
           $hmc_content =  '<div id="hmc-content" class="' . $hmc_options['hmc_position'] . ' ' . $classes . '" title="' . $hmc_options['hmc_tooltip'] . '">';
           $hmc_content .=   (!empty($label) ? '<span>' . $label . '</span>' : '')
-                            . $total_difficulty . get_fontawesome_copy_license();
+                            . $total_difficulty . hmc_get_fontawesome_copy_license();
           $hmc_content .= '</div>';
           $the_content = $hmc_options['hmc_position'] === 'top' ? ($hmc_content . $the_content) : ($the_content . $hmc_content);
         }
