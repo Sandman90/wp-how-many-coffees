@@ -162,10 +162,10 @@ function hmc_position_cb( $args ) {
       id="<?php echo esc_attr( $args['label_for'] ); ?>"
       data-custom="<?php echo esc_attr( $args['hmc_custom_data'] ); ?>"
       name="hmc_options[<?php echo esc_attr( $args['label_for'] ); ?>]">
-    <option value="top" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'top', false ) ) : ( '' ); ?>>
+    <option value="top" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ esc_attr( $args['label_for'] ) ], 'top', false ) ) : ( '' ); ?>>
       <?php esc_html_e( 'top', 'hmc' ); ?>
     </option>
-    <option value="bottom" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'bottom', false ) ) : ( '' ); ?>>
+    <option value="bottom" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ esc_attr( $args['label_for'] ) ], 'bottom', false ) ) : ( '' ); ?>>
       <?php esc_html_e( 'bottom', 'hmc' ); ?>
     </option>
   </select>
@@ -188,7 +188,7 @@ function hmc_icon_cb( $args ) {
       data-custom="<?php echo esc_attr( $args['hmc_custom_data'] ); ?>"
       name="hmc_options[<?php echo esc_attr( $args['label_for'] ); ?>]">
     <?php foreach (get_icons() as $icon => $value) { ?>
-    <option value="<?php echo $icon ?>" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ],
+    <option value="<?php echo $icon ?>" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ esc_attr( $args['label_for'] ) ],
         $icon, false ) ) : ( '' ); ?>>
       <?php esc_html_e( $icon, 'hmc' ); ?>
     </option>
@@ -215,7 +215,7 @@ function hmc_text_cb( $args ) {
            id="<?php echo esc_attr( $args['label_for'] ); ?>"
            data-custom="<?php echo esc_attr( $args['hmc_custom_data'] ); ?>"
            name="hmc_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
-           value="<?php echo isset( $options[ $args['label_for'] ] ) ? $options[ $args['label_for'] ] : ( '' ); ?>" />
+           value="<?php echo isset( $options[ $args['label_for'] ] ) ? $options[ esc_attr( $args['label_for'] ) ] : ( '' ); ?>" />
   <p class="description">
     <?php
     switch($args['label_for']) {
