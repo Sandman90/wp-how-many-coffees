@@ -16,7 +16,6 @@ function hmc_settings_init() {
 	$args = array(
 			'type' => 'string', 
 			// 'sanitize_callback' => 'sanitize_text_field'
-			// 'default' => null,
 			);
   // Register a new setting for "hmc" page.
   register_setting( 'hmc', 'hmc_options', $args  );
@@ -196,7 +195,7 @@ function hmc_icon_cb( $args ) {
       foreach ($hmc_get_icons as $icon => $value) { ?>
     <option value="<?php echo esc_attr($icon) ?>" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ esc_attr( $args['label_for'] ) ],
         $icon, false ) ) : ( '' ); ?>>
-      <?php esc_html_e( $icon, 'how-many-coffees' ); ?>
+      <?php echo esc_attr($icon); ?>
     </option>
     <?php } ?>
 <!--    <option value="sugar" --><?php //echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'sugar', false ) ) : ( '' ); ?><!-->-->
@@ -367,12 +366,9 @@ function hmc_difficulty_data($post_id) {
     return;
 
   // security check
-  if ( isset( $_POST['hmc_nonce'] ) )
-    if ( !wp_verify_nonce( wp_unslash($_POST['hmc_nonce']), plugin_basename( __FILE__ ) ) ) // spelling fix
-      return;
-
-  // further checks if you like,
-  // for example particular user, role or maybe post type in case of custom post types
+  // if ( isset( $_POST['hmc_nonce'] ) )
+  //   if ( !wp_verify_nonce( wp_unslash($_POST['hmc_nonce']), plugin_basename( __FILE__ ) ) ) // spelling fix
+  //    return;
 
   // now store data in custom fields based on checkboxes selected
   if ( isset( $_POST['hmc_meta'] ) &&  !empty($_POST['hmc_meta']['difficulty']) ) {
