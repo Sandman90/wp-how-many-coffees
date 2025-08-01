@@ -189,7 +189,7 @@ function hmc_icon_cb( $args ) {
       name="hmc_options[<?php echo esc_attr( $args['label_for'] ); ?>]">
     <?php $hmc_get_icons = hmc_get_icons();
       foreach ($hmc_get_icons as $icon => $value) { ?>
-    <option value="<?php echo $icon ?>" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ esc_attr( $args['label_for'] ) ],
+    <option value="<?php echo esc_attr($icon) ?>" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ esc_attr( $args['label_for'] ) ],
         $icon, false ) ) : ( '' ); ?>>
       <?php esc_html_e( $icon, 'how-many-coffees' ); ?>
     </option>
@@ -216,7 +216,7 @@ function hmc_text_cb( $args ) {
            id="<?php echo esc_attr( $args['label_for'] ); ?>"
            data-custom="<?php echo esc_attr( $args['hmc_custom_data'] ); ?>"
            name="hmc_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
-           value="<?php echo isset( $options[ $args['label_for'] ] ) ? $options[ esc_attr( $args['label_for'] ) ] : ( '' ); ?>" />
+           value="<?php echo isset( $options[ $args['label_for'] ] ) ? esc_attr($options[ esc_attr( $args['label_for'] ) ]) : ( '' ); ?>" />
   <p class="description">
     <?php
     switch($args['label_for']) {
@@ -349,7 +349,7 @@ function hmc_difficulty_box_content() {
   wp_nonce_field( plugin_basename( __FILE__ ), 'hmc_nonce' );
   echo '<label for="hmc_difficulty">Set quantity of coffees or difficulty for this post:</label><br />'
         . '<input id="hmc_difficulty" type="number" name="hmc_meta[difficulty]" value="'
-        . (!empty($hmc_meta) ? $hmc_meta['difficulty'] : '')
+        . (!empty($hmc_meta) ? esc_attr($hmc_meta['difficulty']) : '')
         . '" /><br />';
 }
 
