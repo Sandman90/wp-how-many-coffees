@@ -366,9 +366,9 @@ function hmc_difficulty_data($post_id) {
     return;
 
   // security check
-  // if ( isset( $_POST['hmc_nonce'] ) )
-  //   if ( !wp_verify_nonce( wp_unslash($_POST['hmc_nonce']), plugin_basename( __FILE__ ) ) ) // spelling fix
-  //    return;
+  if ( isset( $_POST['hmc_nonce'] ) )
+    if ( !wp_verify_nonce( sanitize_text_field(wp_unslash($_POST['hmc_nonce'])), plugin_basename( __FILE__ ) ) ) // spelling fix
+      return;
 
   // now store data in custom fields based on checkboxes selected
   if ( isset( $_POST['hmc_meta'] ) &&  !empty($_POST['hmc_meta']['difficulty']) ) {
