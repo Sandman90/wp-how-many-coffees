@@ -1,5 +1,4 @@
 <?php
-// BASIC SECURITY
 defined( 'ABSPATH' ) or die( 'Unauthorized Access!' );
 
 /******************************************************************
@@ -124,12 +123,10 @@ function hmc_settings_init() {
  */
 add_action( 'admin_init', 'hmc_settings_init' );
 
-
 /**
  * Custom option and settings:
  *  - callback functions
  */
-
 
 /**
  * Developers section callback function.
@@ -282,12 +279,10 @@ function hmc_options_page() {
   );
 }
 
-
 /**
  * Register our hmc_options_page to the admin_menu action hook.
  */
 add_action( 'admin_menu', 'hmc_options_page' );
-
 
 /**
  * Top level menu callback function
@@ -321,11 +316,8 @@ function hmc_options_page_html() {
   <?php
 }
 
-
-
 /******************************************************************
  * Admin Meta box
- *
  */
 
 // register the meta box
@@ -333,7 +325,7 @@ add_action( 'add_meta_boxes', 'hmc_difficulty_checkboxes' );
 function hmc_difficulty_checkboxes() {
   add_meta_box(
       'hmc_meta_box_id',          // this is HTML id of the box on edit screen
-      'Set quantity for this post',    // title of the box
+      'How Many Coffees',    // title of the box
       'hmc_difficulty_box_content',   // function to be called to display the checkboxes, see the function below
       'post',        // on which edit screen the box should appear
       'normal',      // part of page where the box should appear
@@ -347,7 +339,7 @@ function hmc_difficulty_box_content() {
   // nonce field for all your meta boxes of same plugin
   $hmc_meta = get_post_meta(get_the_ID(), 'hmc_meta', true);
   wp_nonce_field( plugin_basename( __FILE__ ), 'hmc_nonce' );
-  echo '<label for="hmc_difficulty">Set difficulty</label><br />'
+  echo '<label for="hmc_difficulty">Set quantity of coffees or difficulty for this post:</label><br />'
         . '<input id="hmc_difficulty" type="number" name="hmc_meta[difficulty]" value="'
         . (!empty($hmc_meta) ? $hmc_meta['difficulty'] : '')
         . '" /><br />';
