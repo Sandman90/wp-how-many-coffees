@@ -4,13 +4,13 @@ The difficulty is indicated in coffee (with a lot of aroma).
 
 **Contributors:** Andrea Epifano (aka Sandman)
 
-**Home link:** https://www.sandbay.it/home/
+**Home link:** https://www.sandbay.it/
 
 **Tags:** quantity, task management, rate posts
 
 **Requires at least:** 5.0
 
-**Tested up to:** 6.3
+**Tested up to:** 6.8
 
 **Stable tag:** 1.0.0
 
