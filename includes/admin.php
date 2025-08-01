@@ -1,4 +1,5 @@
 <?php
+// BASIC SECURITY
 defined( 'ABSPATH' ) or die( 'Unauthorized Access!' );
 
 /******************************************************************
@@ -18,7 +19,7 @@ function hmc_settings_init() {
   // Register a new section in the "hmc" page.
   add_settings_section(
       'hmc_section_developers',
-      __( 'Widget to quantify everything.', 'hmc' ), 'hmc_section_developers_callback',
+      __( 'Widget to quantify everything.', 'how-many-coffees' ), 'hmc_section_developers_callback',
       'hmc'
   );
 
@@ -26,7 +27,7 @@ function hmc_settings_init() {
   add_settings_field(
       'hmc_position', // As of WP 4.6 this value is used only internally.
       // Use $args' label_for to populate the id inside the callback.
-      __( 'Widget position', 'hmc' ),
+      __( 'Widget position', 'how-many-coffees' ),
       'hmc_position_cb',
       'hmc',
       'hmc_section_developers',
@@ -39,7 +40,7 @@ function hmc_settings_init() {
   add_settings_field(
       'hmc_icon', // As of WP 4.6 this value is used only internally.
       // Use $args' label_for to populate the id inside the callback.
-      __( 'Quantity Icon', 'hmc' ),
+      __( 'Quantity Icon', 'how-many-coffees' ),
       'hmc_icon_cb',
       'hmc',
       'hmc_section_developers',
@@ -52,7 +53,7 @@ function hmc_settings_init() {
   add_settings_field(
       'hmc_label', // As of WP 4.6 this value is used only internally.
       // Use $args' label_for to populate the id inside the callback.
-      __( 'Widget label', 'hmc' ),
+      __( 'Widget label', 'how-many-coffees' ),
       'hmc_text_cb',
       'hmc',
       'hmc_section_developers',
@@ -65,7 +66,7 @@ function hmc_settings_init() {
   add_settings_field(
       'hmc_tooltip', // As of WP 4.6 this value is used only internally.
       // Use $args' label_for to populate the id inside the callback.
-      __( 'Widget tooltip', 'hmc' ),
+      __( 'Widget tooltip', 'how-many-coffees' ),
       'hmc_text_cb',
       'hmc',
       'hmc_section_developers',
@@ -78,7 +79,7 @@ function hmc_settings_init() {
   add_settings_field(
       'hmc_custom_icon', // As of WP 4.6 this value is used only internally.
       // Use $args' label_for to populate the id inside the callback.
-      __( 'Custom icon from Fontawesome or other icons libraries', 'hmc' ),
+      __( 'Custom icon from Fontawesome or other icons libraries', 'how-many-coffees' ),
       'hmc_text_cb',
       'hmc',
       'hmc_section_developers',
@@ -91,7 +92,7 @@ function hmc_settings_init() {
   add_settings_field(
       'hmc_custom_classes', // As of WP 4.6 this value is used only internally.
       // Use $args' label_for to populate the id inside the callback.
-      __( 'Optional classes', 'hmc' ),
+      __( 'Optional classes', 'how-many-coffees' ),
       'hmc_text_cb',
       'hmc',
       'hmc_section_developers',
@@ -123,10 +124,12 @@ function hmc_settings_init() {
  */
 add_action( 'admin_init', 'hmc_settings_init' );
 
+
 /**
  * Custom option and settings:
  *  - callback functions
  */
+
 
 /**
  * Developers section callback function.
@@ -137,7 +140,7 @@ function hmc_section_developers_callback( $args ) {
   ?>
   <p id="<?php echo esc_attr( $args['id'] ); ?>"><?php esc_html_e(
       'How many coffees spent to finish a certain task? Now you can quantify them thanks to the widget associated with each post.',
-      'hmc' ); ?></p>
+      'how-many-coffees' ); ?></p>
   <?php
 }
 
@@ -160,14 +163,14 @@ function hmc_position_cb( $args ) {
       data-custom="<?php echo esc_attr( $args['hmc_custom_data'] ); ?>"
       name="hmc_options[<?php echo esc_attr( $args['label_for'] ); ?>]">
     <option value="top" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ esc_attr( $args['label_for'] ) ], 'top', false ) ) : ( '' ); ?>>
-      <?php esc_html_e( 'top', 'hmc' ); ?>
+      <?php esc_html_e( 'top', 'how-many-coffees' ); ?>
     </option>
     <option value="bottom" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ esc_attr( $args['label_for'] ) ], 'bottom', false ) ) : ( '' ); ?>>
-      <?php esc_html_e( 'bottom', 'hmc' ); ?>
+      <?php esc_html_e( 'bottom', 'how-many-coffees' ); ?>
     </option>
   </select>
   <p class="description">
-    <?php esc_html_e( 'Widget position inside your post content.', 'hmc' ); ?>
+    <?php esc_html_e( 'Widget position inside your post content.', 'how-many-coffees' ); ?>
   </p>
   <?php
 }
@@ -188,7 +191,7 @@ function hmc_icon_cb( $args ) {
       foreach ($hmc_get_icons as $icon => $value) { ?>
     <option value="<?php echo $icon ?>" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ esc_attr( $args['label_for'] ) ],
         $icon, false ) ) : ( '' ); ?>>
-      <?php esc_html_e( $icon, 'hmc' ); ?>
+      <?php esc_html_e( $icon, 'how-many-coffees' ); ?>
     </option>
     <?php } ?>
 <!--    <option value="sugar" --><?php //echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'sugar', false ) ) : ( '' ); ?><!-->-->
@@ -196,7 +199,7 @@ function hmc_icon_cb( $args ) {
 <!--    </option>-->
   </select>
   <p class="description">
-    <?php esc_html_e( 'Choosee your icon.', 'hmc' ); ?>
+    <?php esc_html_e( 'Choosee your icon.', 'how-many-coffees' ); ?>
   </p>
   <?php
 }
@@ -218,19 +221,19 @@ function hmc_text_cb( $args ) {
     <?php
     switch($args['label_for']) {
       case 'hmc_label':
-        esc_html_e( 'Label for your widget. Leave blank to not have a label.', 'hmc' );
+        esc_html_e( 'Label for your widget. Leave blank to not have a label.', 'how-many-coffees' );
         break;
 
       case 'hmc_tooltip':
-        esc_html_e( 'Tooltip for your widget on hover. Leave blank to not have a tooltip.', 'hmc' );
+        esc_html_e( 'Tooltip for your widget on hover. Leave blank to not have a tooltip.', 'how-many-coffees' );
         break;
 
       case 'hmc_custom_icon':
-        esc_html_e( 'You can also use icons of your choice by retrieving them from Fontawesome or other icons libraries. To do this you must necessarily install the Fontawesome library on your blog and search for the icon that interests you, inserting the necessary classes. For example for the coffee icon you could use: "fa-solid fa-mug-hot".', 'hmc' );
+        esc_html_e( 'You can also use icons of your choice by retrieving them from Fontawesome or other icons libraries. To do this you must necessarily install the Fontawesome library on your blog and search for the icon that interests you, inserting the necessary classes. For example for the coffee icon you could use: "fa-solid fa-mug-hot".', 'how-many-coffees' );
         break;
 
       case 'hmc_custom_classes':
-        esc_html_e( 'Custom classes for your widget container.', 'hmc' );
+        esc_html_e( 'Custom classes for your widget container.', 'how-many-coffees' );
         break;
     } ?>
   </p>
@@ -260,7 +263,7 @@ function hmc_variants_cb( $args ) {
     </tbody>
   </table>
   <p class="description">
-    <?php esc_html_e( 'Style variants', 'hmc' ); ?>
+    <?php esc_html_e( 'Style variants', 'how-many-coffees' ); ?>
   </p>
   <?php
 }
@@ -279,10 +282,12 @@ function hmc_options_page() {
   );
 }
 
+
 /**
  * Register our hmc_options_page to the admin_menu action hook.
  */
 add_action( 'admin_menu', 'hmc_options_page' );
+
 
 /**
  * Top level menu callback function
@@ -316,8 +321,11 @@ function hmc_options_page_html() {
   <?php
 }
 
+
+
 /******************************************************************
  * Admin Meta box
+ *
  */
 
 // register the meta box
