@@ -372,7 +372,7 @@ function hmc_difficulty_data($post_id) {
   // now store data in custom fields based on checkboxes selected
   if ( isset( $_POST['hmc_meta'] ) &&  !empty($_POST['hmc_meta']['difficulty']) ) {
     $hmc_meta = array(
-        'difficulty' => (int) sanitize_text_field($_POST['hmc_meta']['difficulty'])
+        'difficulty' => (int) sanitize_text_field(wp_unslash($_POST['hmc_meta']['difficulty']))
     );
     update_post_meta( $post_id, 'hmc_meta', $hmc_meta );
   }
