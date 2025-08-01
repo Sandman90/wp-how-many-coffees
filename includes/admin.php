@@ -362,8 +362,9 @@ function hmc_difficulty_data($post_id) {
     return;
 
   // security check
-  if ( !wp_verify_nonce( $_POST['hmc_nonce'], plugin_basename( __FILE__ ) ) ) // spelling fix
-    return;
+  if ( isset( $_POST['hmc_nonce'] ) )
+    if ( !wp_verify_nonce( wp_unslash($_POST['hmc_nonce']), plugin_basename( __FILE__ ) ) ) // spelling fix
+      return;
 
   // further checks if you like,
   // for example particular user, role or maybe post type in case of custom post types
