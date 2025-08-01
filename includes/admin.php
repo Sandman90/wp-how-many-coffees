@@ -13,8 +13,13 @@ defined( 'ABSPATH' ) or die( 'Unauthorized Access!' );
  * Custom option and settings.
  */
 function hmc_settings_init() {
+	$args = array(
+			'type' => 'string', 
+			// 'sanitize_callback' => 'sanitize_text_field'
+			// 'default' => null,
+			);
   // Register a new setting for "hmc" page.
-  register_setting( 'hmc', 'hmc_options' );
+  register_setting( 'hmc', 'hmc_options', $args  );
 
   // Register a new section in the "hmc" page.
   add_settings_section(
