@@ -1,6 +1,6 @@
 === How Many Coffees ===
 
-Contributors: Andrea Epifano (aka Sandman)
+Contributors: @sandman90
 Version: 3.4
 Tags: quantity, task management, rate posts
 Requires at least: 5.0
