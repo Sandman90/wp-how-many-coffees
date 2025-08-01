@@ -370,7 +370,7 @@ function hmc_difficulty_data($post_id) {
   // for example particular user, role or maybe post type in case of custom post types
 
   // now store data in custom fields based on checkboxes selected
-  if ( isset( $_POST['hmc_meta'] ) ) {
+  if ( isset( $_POST['hmc_meta'] ) &&  !empty($_POST['hmc_meta']['difficulty']) ) {
     $hmc_meta = array(
         'difficulty' => (int) sanitize_text_field($_POST['hmc_meta']['difficulty'])
     );
