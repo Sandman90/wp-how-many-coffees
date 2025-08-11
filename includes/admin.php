@@ -13,18 +13,24 @@ defined( 'ABSPATH' ) or die( 'Unauthorized Access!' );
  * Custom option and settings.
  */
 function hmcoffees_settings_init() {
-	$args = array(
+	$hmc_rs_args = array(
 			'type' => 'string', 
-			// 'sanitize_callback' => 'sanitize_text_field'
+			'sanitize_callback' => 'sanitize_text_field'
 			);
   // Register a new setting for "hmcoffees" page.
-  register_setting( 'hmcoffees', 'hmcoffees_options', $args  );
+  // register_setting( 'hmcoffees_settings', 'hmcoffees_options', $args  );
+  register_setting( 'hmcoffees_settings', 'hmcoffees_position', $hmc_rs_args  );
+  register_setting( 'hmcoffees_settings', 'hmcoffees_icon', $hmc_rs_args  );
+  register_setting( 'hmcoffees_settings', 'hmcoffees_label', $hmc_rs_args  );
+  register_setting( 'hmcoffees_settings', 'hmcoffees_tooltip', $hmc_rs_args  );
+  register_setting( 'hmcoffees_settings', 'hmcoffees_custom_icon', $hmc_rs_args  );
+  register_setting( 'hmcoffees_settings', 'hmcoffees_custom_classes', $hmc_rs_args  );
 
   // Register a new section in the "hmcoffees" page.
   add_settings_section(
       'hmcoffees_section_developers',
       __( 'Widget to quantify everything.', 'how-many-coffees' ), 'hmcoffees_section_developers_callback',
-      'hmcoffees'
+      'hmcoffees_settings'
   );
 
   // Register a new field in the "hmcoffees_section_developers" section, inside the "hmcoffees" page.
@@ -33,7 +39,7 @@ function hmcoffees_settings_init() {
       // Use $args' label_for to populate the id inside the callback.
       __( 'Widget position', 'how-many-coffees' ),
       'hmcoffees_position_cb',
-      'hmcoffees',
+      'hmcoffees_settings',
       'hmcoffees_section_developers',
       array(
           'label_for'         => 'hmcoffees_position',
@@ -46,7 +52,7 @@ function hmcoffees_settings_init() {
       // Use $args' label_for to populate the id inside the callback.
       __( 'Quantity Icon', 'how-many-coffees' ),
       'hmcoffees_icon_cb',
-      'hmcoffees',
+      'hmcoffees_settings',
       'hmcoffees_section_developers',
       array(
           'label_for'         => 'hmcoffees_icon',
@@ -59,7 +65,7 @@ function hmcoffees_settings_init() {
       // Use $args' label_for to populate the id inside the callback.
       __( 'Widget label', 'how-many-coffees' ),
       'hmcoffees_text_cb',
-      'hmcoffees',
+      'hmcoffees_settings',
       'hmcoffees_section_developers',
       array(
           'label_for'         => 'hmcoffees_label',
@@ -72,7 +78,7 @@ function hmcoffees_settings_init() {
       // Use $args' label_for to populate the id inside the callback.
       __( 'Widget tooltip', 'how-many-coffees' ),
       'hmcoffees_text_cb',
-      'hmcoffees',
+      'hmcoffees_settings',
       'hmcoffees_section_developers',
       array(
           'label_for'         => 'hmcoffees_tooltip',
@@ -85,7 +91,7 @@ function hmcoffees_settings_init() {
       // Use $args' label_for to populate the id inside the callback.
       __( 'Custom icon from Fontawesome or other icons libraries', 'how-many-coffees' ),
       'hmcoffees_text_cb',
-      'hmcoffees',
+      'hmcoffees_settings',
       'hmcoffees_section_developers',
       array(
           'label_for'         => 'hmcoffees_custom_icon',
@@ -98,7 +104,7 @@ function hmcoffees_settings_init() {
       // Use $args' label_for to populate the id inside the callback.
       __( 'Optional classes', 'how-many-coffees' ),
       'hmcoffees_text_cb',
-      'hmcoffees',
+      'hmcoffees_settings',
       'hmcoffees_section_developers',
       array(
           'label_for'         => 'hmcoffees_custom_classes',
@@ -106,21 +112,6 @@ function hmcoffees_settings_init() {
           'hmcoffees_custom_data' => 'custom',
       )
   );
-
-  /* TODO Style variants.
-  add_settings_field(
-      'hmcoffees_variants', // As of WP 4.6 this value is used only internally.
-      // Use $args' label_for to populate the id inside the callback.
-      __( 'Style variants', 'hmcoffees' ),
-      'hmcoffees_variants_cb',
-      'hmcoffees',
-      'hmcoffees_section_developers',
-      array(
-          'label_for'         => 'hmcoffees_variants',
-          'class'             => 'hmcoffees_row',
-          'hmcoffees_custom_data' => 'custom',
-      )
-  ); */
 }
 
 /**
@@ -133,7 +124,6 @@ add_action( 'admin_init', 'hmcoffees_settings_init' );
  * Custom option and settings:
  *  - callback functions
  */
-
 
 /**
  * Developers section callback function.
@@ -198,9 +188,6 @@ function hmcoffees_icon_cb( $args ) {
       <?php echo esc_attr($icon); ?>
     </option>
     <?php } ?>
-<!--    <option value="sugar" --><?php //echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'sugar', false ) ) : ( '' ); ?><!-->-->
-<!--      --><?php //esc_html_e( 'sugar', 'hmcoffees' ); ?>
-<!--    </option>-->
   </select>
   <p class="description">
     <?php esc_html_e( 'Choosee your icon.', 'how-many-coffees' ); ?>
@@ -245,34 +232,6 @@ function hmcoffees_text_cb( $args ) {
 }
 
 /**
- * Admin - style variants.
- * @param array $args
- */
-function hmcoffees_variants_cb( $args ) {
-  // Get the value of the setting we've registered with register_setting()
-//  $options = get_option( 'hmcoffees_options' );
-  ?>
-  <table>
-    <tbody>
-      <tr>
-        <td class="cell-singular">
-          <input type="radio" value="on"
-              name="hmcoffees_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
-              id="<?php echo esc_attr( $args['label_for'] ); ?>"
-<?php //checked( $options[ $args['label_for'] ],'prova', true ); ?>
-          />
-          <span id="hmc-content">Style 1</span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <p class="description">
-    <?php esc_html_e( 'Style variants', 'how-many-coffees' ); ?>
-  </p>
-  <?php
-}
-
-/**
  * Add the top level menu page.
  */
 function hmcoffees_options_page() {
@@ -281,17 +240,15 @@ function hmcoffees_options_page() {
       'How Many Coffees',
       'How Many Coffees',
       'manage_options',
-      'hmcoffees',
+      'hmcoffees_settings',
       'hmcoffees_options_page_html'
   );
 }
-
 
 /**
  * Register our hmcoffees_options_page to the admin_menu action hook.
  */
 add_action( 'admin_menu', 'hmcoffees_options_page' );
-
 
 /**
  * Top level menu callback function
@@ -310,10 +267,10 @@ function hmcoffees_options_page_html() {
     <form action="options.php" method="post">
       <?php
       // output security fields for the registered setting "hmcoffees"
-      settings_fields( 'hmcoffees' );
+      settings_fields( 'hmcoffees_settings' );
       // output setting sections and their fields
       // (sections are registered for "hmcoffees", each field is registered to a specific section)
-      do_settings_sections( 'hmcoffees' );
+      do_settings_sections( 'hmcoffees_settings' );
       // output save settings button
       submit_button( 'Save Settings' );
       ?>
@@ -321,7 +278,6 @@ function hmcoffees_options_page_html() {
   </div>
   <?php
 }
-
 
 
 /******************************************************************
