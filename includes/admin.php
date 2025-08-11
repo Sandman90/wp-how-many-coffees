@@ -302,9 +302,6 @@ function hmc_options_page_html() {
     return;
   }
 
-  // TODO Icons in select for icons.
-  // wp_enqueue_style("functions", 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css', false, "1.0", "all");
-
   // show error/update messages
   settings_errors( 'hmc_messages' );
   ?>
