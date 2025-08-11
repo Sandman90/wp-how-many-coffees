@@ -12,121 +12,121 @@ defined( 'ABSPATH' ) or die( 'Unauthorized Access!' );
 /**
  * Custom option and settings.
  */
-function hmc_settings_init() {
+function hmcoffees_settings_init() {
 	$args = array(
 			'type' => 'string', 
 			// 'sanitize_callback' => 'sanitize_text_field'
 			);
-  // Register a new setting for "hmc" page.
-  register_setting( 'hmc', 'hmc_options', $args  );
+  // Register a new setting for "hmcoffees" page.
+  register_setting( 'hmcoffees', 'hmcoffees_options', $args  );
 
-  // Register a new section in the "hmc" page.
+  // Register a new section in the "hmcoffees" page.
   add_settings_section(
-      'hmc_section_developers',
-      __( 'Widget to quantify everything.', 'how-many-coffees' ), 'hmc_section_developers_callback',
-      'hmc'
+      'hmcoffees_section_developers',
+      __( 'Widget to quantify everything.', 'how-many-coffees' ), 'hmcoffees_section_developers_callback',
+      'hmcoffees'
   );
 
-  // Register a new field in the "hmc_section_developers" section, inside the "hmc" page.
+  // Register a new field in the "hmcoffees_section_developers" section, inside the "hmcoffees" page.
   add_settings_field(
-      'hmc_position', // As of WP 4.6 this value is used only internally.
+      'hmcoffees_position', // As of WP 4.6 this value is used only internally.
       // Use $args' label_for to populate the id inside the callback.
       __( 'Widget position', 'how-many-coffees' ),
-      'hmc_position_cb',
-      'hmc',
-      'hmc_section_developers',
+      'hmcoffees_position_cb',
+      'hmcoffees',
+      'hmcoffees_section_developers',
       array(
-          'label_for'         => 'hmc_position',
-          'class'             => 'hmc_row',
-          'hmc_custom_data' => 'custom',
+          'label_for'         => 'hmcoffees_position',
+          'class'             => 'hmcoffees_row',
+          'hmcoffees_custom_data' => 'custom',
       )
   );
   add_settings_field(
-      'hmc_icon', // As of WP 4.6 this value is used only internally.
+      'hmcoffees_icon', // As of WP 4.6 this value is used only internally.
       // Use $args' label_for to populate the id inside the callback.
       __( 'Quantity Icon', 'how-many-coffees' ),
-      'hmc_icon_cb',
-      'hmc',
-      'hmc_section_developers',
+      'hmcoffees_icon_cb',
+      'hmcoffees',
+      'hmcoffees_section_developers',
       array(
-          'label_for'         => 'hmc_icon',
-          'class'             => 'hmc_row',
-          'hmc_custom_data' => 'custom',
+          'label_for'         => 'hmcoffees_icon',
+          'class'             => 'hmcoffees_row',
+          'hmcoffees_custom_data' => 'custom',
       )
   );
   add_settings_field(
-      'hmc_label', // As of WP 4.6 this value is used only internally.
+      'hmcoffees_label', // As of WP 4.6 this value is used only internally.
       // Use $args' label_for to populate the id inside the callback.
       __( 'Widget label', 'how-many-coffees' ),
-      'hmc_text_cb',
-      'hmc',
-      'hmc_section_developers',
+      'hmcoffees_text_cb',
+      'hmcoffees',
+      'hmcoffees_section_developers',
       array(
-          'label_for'         => 'hmc_label',
-          'class'             => 'hmc_row',
-          'hmc_custom_data' => 'custom',
+          'label_for'         => 'hmcoffees_label',
+          'class'             => 'hmcoffees_row',
+          'hmcoffees_custom_data' => 'custom',
       )
   );
   add_settings_field(
-      'hmc_tooltip', // As of WP 4.6 this value is used only internally.
+      'hmcoffees_tooltip', // As of WP 4.6 this value is used only internally.
       // Use $args' label_for to populate the id inside the callback.
       __( 'Widget tooltip', 'how-many-coffees' ),
-      'hmc_text_cb',
-      'hmc',
-      'hmc_section_developers',
+      'hmcoffees_text_cb',
+      'hmcoffees',
+      'hmcoffees_section_developers',
       array(
-          'label_for'         => 'hmc_tooltip',
-          'class'             => 'hmc_row',
-          'hmc_custom_data' => 'custom',
+          'label_for'         => 'hmcoffees_tooltip',
+          'class'             => 'hmcoffees_row',
+          'hmcoffees_custom_data' => 'custom',
       )
   );
   add_settings_field(
-      'hmc_custom_icon', // As of WP 4.6 this value is used only internally.
+      'hmcoffees_custom_icon', // As of WP 4.6 this value is used only internally.
       // Use $args' label_for to populate the id inside the callback.
       __( 'Custom icon from Fontawesome or other icons libraries', 'how-many-coffees' ),
-      'hmc_text_cb',
-      'hmc',
-      'hmc_section_developers',
+      'hmcoffees_text_cb',
+      'hmcoffees',
+      'hmcoffees_section_developers',
       array(
-          'label_for'         => 'hmc_custom_icon',
-          'class'             => 'hmc_row',
-          'hmc_custom_data' => 'custom',
+          'label_for'         => 'hmcoffees_custom_icon',
+          'class'             => 'hmcoffees_row',
+          'hmcoffees_custom_data' => 'custom',
       )
   );
   add_settings_field(
-      'hmc_custom_classes', // As of WP 4.6 this value is used only internally.
+      'hmcoffees_custom_classes', // As of WP 4.6 this value is used only internally.
       // Use $args' label_for to populate the id inside the callback.
       __( 'Optional classes', 'how-many-coffees' ),
-      'hmc_text_cb',
-      'hmc',
-      'hmc_section_developers',
+      'hmcoffees_text_cb',
+      'hmcoffees',
+      'hmcoffees_section_developers',
       array(
-          'label_for'         => 'hmc_custom_classes',
-          'class'             => 'hmc_row',
-          'hmc_custom_data' => 'custom',
+          'label_for'         => 'hmcoffees_custom_classes',
+          'class'             => 'hmcoffees_row',
+          'hmcoffees_custom_data' => 'custom',
       )
   );
 
   /* TODO Style variants.
   add_settings_field(
-      'hmc_variants', // As of WP 4.6 this value is used only internally.
+      'hmcoffees_variants', // As of WP 4.6 this value is used only internally.
       // Use $args' label_for to populate the id inside the callback.
-      __( 'Style variants', 'hmc' ),
-      'hmc_variants_cb',
-      'hmc',
-      'hmc_section_developers',
+      __( 'Style variants', 'hmcoffees' ),
+      'hmcoffees_variants_cb',
+      'hmcoffees',
+      'hmcoffees_section_developers',
       array(
-          'label_for'         => 'hmc_variants',
-          'class'             => 'hmc_row',
-          'hmc_custom_data' => 'custom',
+          'label_for'         => 'hmcoffees_variants',
+          'class'             => 'hmcoffees_row',
+          'hmcoffees_custom_data' => 'custom',
       )
   ); */
 }
 
 /**
- * Register our hmc_settings_init to the admin_init action hook.
+ * Register our hmcoffees_settings_init to the admin_init action hook.
  */
-add_action( 'admin_init', 'hmc_settings_init' );
+add_action( 'admin_init', 'hmcoffees_settings_init' );
 
 
 /**
@@ -140,7 +140,7 @@ add_action( 'admin_init', 'hmc_settings_init' );
  *
  * @param array $args  The settings array, defining title, id, callback.
  */
-function hmc_section_developers_callback( $args ) {
+function hmcoffees_section_developers_callback( $args ) {
   ?>
   <p id="<?php echo esc_attr( $args['id'] ); ?>"><?php esc_html_e(
       'How many coffees spent to finish a certain task? Now you can quantify them thanks to the widget associated with each post.',
@@ -158,14 +158,14 @@ function hmc_section_developers_callback( $args ) {
  *
  * @param array $args
  */
-function hmc_position_cb( $args ) {
+function hmcoffees_position_cb( $args ) {
   // Get the value of the setting we've registered with register_setting()
-  $options = get_option( 'hmc_options' );
+  $options = get_option( 'hmcoffees_options' );
   ?>
   <select
       id="<?php echo esc_attr( $args['label_for'] ); ?>"
-      data-custom="<?php echo esc_attr( $args['hmc_custom_data'] ); ?>"
-      name="hmc_options[<?php echo esc_attr( $args['label_for'] ); ?>]">
+      data-custom="<?php echo esc_attr( $args['hmcoffees_custom_data'] ); ?>"
+      name="hmcoffees_options[<?php echo esc_attr( $args['label_for'] ); ?>]">
     <option value="top" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ esc_attr( $args['label_for'] ) ], 'top', false ) ) : ( '' ); ?>>
       <?php esc_html_e( 'top', 'how-many-coffees' ); ?>
     </option>
@@ -183,23 +183,23 @@ function hmc_position_cb( $args ) {
  * Icon to be shown in widget.
  * @param array $args
  */
-function hmc_icon_cb( $args ) {
+function hmcoffees_icon_cb( $args ) {
   // Get the value of the setting we've registered with register_setting()
-  $options = get_option( 'hmc_options' );
+  $options = get_option( 'hmcoffees_options' );
   ?>
   <select
       id="<?php echo esc_attr( $args['label_for'] ); ?>"
-      data-custom="<?php echo esc_attr( $args['hmc_custom_data'] ); ?>"
-      name="hmc_options[<?php echo esc_attr( $args['label_for'] ); ?>]">
-    <?php $hmc_get_icons = hmc_get_icons();
-      foreach ($hmc_get_icons as $icon => $value) { ?>
+      data-custom="<?php echo esc_attr( $args['hmcoffees_custom_data'] ); ?>"
+      name="hmcoffees_options[<?php echo esc_attr( $args['label_for'] ); ?>]">
+    <?php $hmcoffees_get_icons = hmcoffees_get_icons();
+      foreach ($hmcoffees_get_icons as $icon => $value) { ?>
     <option value="<?php echo esc_attr($icon) ?>" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ esc_attr( $args['label_for'] ) ],
         $icon, false ) ) : ( '' ); ?>>
       <?php echo esc_attr($icon); ?>
     </option>
     <?php } ?>
 <!--    <option value="sugar" --><?php //echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'sugar', false ) ) : ( '' ); ?><!-->-->
-<!--      --><?php //esc_html_e( 'sugar', 'hmc' ); ?>
+<!--      --><?php //esc_html_e( 'sugar', 'hmcoffees' ); ?>
 <!--    </option>-->
   </select>
   <p class="description">
@@ -212,31 +212,31 @@ function hmc_icon_cb( $args ) {
  * Admin - text inputs.
  * @param array $args
  */
-function hmc_text_cb( $args ) {
+function hmcoffees_text_cb( $args ) {
   // Get the value of the setting we've registered with register_setting()
-  $options = get_option( 'hmc_options' );
+  $options = get_option( 'hmcoffees_options' );
   ?>
     <input type="text"
            id="<?php echo esc_attr( $args['label_for'] ); ?>"
-           data-custom="<?php echo esc_attr( $args['hmc_custom_data'] ); ?>"
-           name="hmc_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
+           data-custom="<?php echo esc_attr( $args['hmcoffees_custom_data'] ); ?>"
+           name="hmcoffees_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
            value="<?php echo isset( $options[ $args['label_for'] ] ) ? esc_attr($options[ esc_attr( $args['label_for'] ) ]) : ( '' ); ?>" />
   <p class="description">
     <?php
     switch($args['label_for']) {
-      case 'hmc_label':
+      case 'hmcoffees_label':
         esc_html_e( 'Label for your widget. Leave blank to not have a label.', 'how-many-coffees' );
         break;
 
-      case 'hmc_tooltip':
+      case 'hmcoffees_tooltip':
         esc_html_e( 'Tooltip for your widget on hover. Leave blank to not have a tooltip.', 'how-many-coffees' );
         break;
 
-      case 'hmc_custom_icon':
+      case 'hmcoffees_custom_icon':
         esc_html_e( 'You can also use icons of your choice by retrieving them from Fontawesome or other icons libraries. To do this you must necessarily install the Fontawesome library on your blog and search for the icon that interests you, inserting the necessary classes. For example for the coffee icon you could use: "fa-solid fa-mug-hot".', 'how-many-coffees' );
         break;
 
-      case 'hmc_custom_classes':
+      case 'hmcoffees_custom_classes':
         esc_html_e( 'Custom classes for your widget container.', 'how-many-coffees' );
         break;
     } ?>
@@ -248,16 +248,16 @@ function hmc_text_cb( $args ) {
  * Admin - style variants.
  * @param array $args
  */
-function hmc_variants_cb( $args ) {
+function hmcoffees_variants_cb( $args ) {
   // Get the value of the setting we've registered with register_setting()
-//  $options = get_option( 'hmc_options' );
+//  $options = get_option( 'hmcoffees_options' );
   ?>
   <table>
     <tbody>
       <tr>
         <td class="cell-singular">
           <input type="radio" value="on"
-              name="hmc_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
+              name="hmcoffees_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
               id="<?php echo esc_attr( $args['label_for'] ); ?>"
 <?php //checked( $options[ $args['label_for'] ],'prova', true ); ?>
           />
@@ -275,45 +275,45 @@ function hmc_variants_cb( $args ) {
 /**
  * Add the top level menu page.
  */
-function hmc_options_page() {
+function hmcoffees_options_page() {
   add_submenu_page(
       'options-general.php',
       'How Many Coffees',
       'How Many Coffees',
       'manage_options',
-      'hmc',
-      'hmc_options_page_html'
+      'hmcoffees',
+      'hmcoffees_options_page_html'
   );
 }
 
 
 /**
- * Register our hmc_options_page to the admin_menu action hook.
+ * Register our hmcoffees_options_page to the admin_menu action hook.
  */
-add_action( 'admin_menu', 'hmc_options_page' );
+add_action( 'admin_menu', 'hmcoffees_options_page' );
 
 
 /**
  * Top level menu callback function
  */
-function hmc_options_page_html() {
+function hmcoffees_options_page_html() {
   // check user capabilities
   if ( ! current_user_can( 'manage_options' ) ) {
     return;
   }
 
   // show error/update messages
-  settings_errors( 'hmc_messages' );
+  settings_errors( 'hmcoffees_messages' );
   ?>
   <div class="wrap">
     <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
     <form action="options.php" method="post">
       <?php
-      // output security fields for the registered setting "hmc"
-      settings_fields( 'hmc' );
+      // output security fields for the registered setting "hmcoffees"
+      settings_fields( 'hmcoffees' );
       // output setting sections and their fields
-      // (sections are registered for "hmc", each field is registered to a specific section)
-      do_settings_sections( 'hmc' );
+      // (sections are registered for "hmcoffees", each field is registered to a specific section)
+      do_settings_sections( 'hmcoffees' );
       // output save settings button
       submit_button( 'Save Settings' );
       ?>
@@ -330,12 +330,12 @@ function hmc_options_page_html() {
  */
 
 // register the meta box
-add_action( 'add_meta_boxes', 'hmc_difficulty_checkboxes' );
-function hmc_difficulty_checkboxes() {
+add_action( 'add_meta_boxes', 'hmcoffees_difficulty_checkboxes' );
+function hmcoffees_difficulty_checkboxes() {
   add_meta_box(
-      'hmc_meta_box_id',          // this is HTML id of the box on edit screen
+      'hmcoffees_meta_box_id',          // this is HTML id of the box on edit screen
       'How Many Coffees',    // title of the box
-      'hmc_difficulty_box_content',   // function to be called to display the checkboxes, see the function below
+      'hmcoffees_difficulty_box_content',   // function to be called to display the checkboxes, see the function below
       'post',        // on which edit screen the box should appear
       'normal',      // part of page where the box should appear
       'default'      // priority of the box
@@ -343,35 +343,35 @@ function hmc_difficulty_checkboxes() {
 }
 
 // display the metabox
-function hmc_difficulty_box_content() {
+function hmcoffees_difficulty_box_content() {
   // nonce field for security check, you can have the same
   // nonce field for all your meta boxes of same plugin
-  $hmc_meta = get_post_meta(get_the_ID(), 'hmc_meta', true);
-  wp_nonce_field( plugin_basename( __FILE__ ), 'hmc_nonce' );
-  echo '<label for="hmc_difficulty">Set quantity of coffees or difficulty for this post:</label><br />'
-        . '<input id="hmc_difficulty" type="number" name="hmc_meta[difficulty]" value="'
-        . (!empty($hmc_meta) ? esc_attr($hmc_meta['difficulty']) : '')
+  $hmcoffees_meta = get_post_meta(get_the_ID(), 'hmcoffees_meta', true);
+  wp_nonce_field( plugin_basename( __FILE__ ), 'hmcoffees_nonce' );
+  echo '<label for="hmcoffees_difficulty">Set quantity of coffees or difficulty for this post:</label><br />'
+        . '<input id="hmcoffees_difficulty" type="number" name="hmcoffees_meta[difficulty]" value="'
+        . (!empty($hmcoffees_meta) ? esc_attr($hmcoffees_meta['difficulty']) : '')
         . '" /><br />';
 }
 
 // save data from checkboxes
-add_action( 'save_post', 'hmc_difficulty_data' );
-function hmc_difficulty_data($post_id) {
+add_action( 'save_post', 'hmcoffees_difficulty_data' );
+function hmcoffees_difficulty_data($post_id) {
 
   // check if this isn't an auto save
   if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
     return;
 
   // security check
-  if ( isset( $_POST['hmc_nonce'] ) )
-    if ( !wp_verify_nonce( sanitize_text_field(wp_unslash($_POST['hmc_nonce'])), plugin_basename( __FILE__ ) ) ) // spelling fix
+  if ( isset( $_POST['hmcoffees_nonce'] ) )
+    if ( !wp_verify_nonce( sanitize_text_field(wp_unslash($_POST['hmcoffees_nonce'])), plugin_basename( __FILE__ ) ) ) // spelling fix
       return;
 
   // now store data in custom fields based on checkboxes selected
-  if ( isset( $_POST['hmc_meta'] ) &&  !empty($_POST['hmc_meta']['difficulty']) ) {
-    $hmc_meta = array(
-        'difficulty' => (int) sanitize_text_field(wp_unslash($_POST['hmc_meta']['difficulty']))
+  if ( isset( $_POST['hmcoffees_meta'] ) &&  !empty($_POST['hmcoffees_meta']['difficulty']) ) {
+    $hmcoffees_meta = array(
+        'difficulty' => (int) sanitize_text_field(wp_unslash($_POST['hmcoffees_meta']['difficulty']))
     );
-    update_post_meta( $post_id, 'hmc_meta', $hmc_meta );
+    update_post_meta( $post_id, 'hmcoffees_meta', $hmcoffees_meta );
   }
 }
