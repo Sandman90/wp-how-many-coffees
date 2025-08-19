@@ -1,7 +1,7 @@
 === How Many Coffees ===
 
 Contributors: @sandman90
-Version: 3.4
+Donate link: https://www.paypal.com/donate/?hosted_button_id=9SZY427L6QE8U
 Tags: quantity, task management, rate posts
 Requires at least: 5.0
 Requires PHP: 7.0
