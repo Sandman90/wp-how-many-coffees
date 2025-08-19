@@ -20,7 +20,7 @@ Now you can quantify them thanks to the widget associated with each post.
 You can also use this widget to quantify other quantities such as sugar, for example, or the amount of spoons of a certain ingredient needed.
 With this plugin you can:
 
-* Quantify the difficulty of a certain task per single post.
+* Quantify the difficulty of a certain task per single post, rate posts difficulty.
 * Quantify the necessary ingredients.
 * Quantifying the length of a process to achieve a goal for each post.
 
