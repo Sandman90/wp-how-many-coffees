@@ -19,6 +19,7 @@ How many coffees spent to finish a certain task?
 Now you can quantify them thanks to the widget associated with each post.
 You can also use this widget to quantify other quantities such as sugar, for example, or the amount of spoons of a certain ingredient needed.
 With this plugin you can:
+
 * Quantify the difficulty of a certain task per single post.
 * Quantify the necessary ingredients.
 * Quantifying the length of a process to achieve a goal for each post.
@@ -54,5 +55,5 @@ icons from external libraries, inserting them in the configuration.
 
 == Changelog ==
 
-= 1.0.0 - 2023.04.16 =
+= 1.0.0 - 2025.08.19 =
 * Initial release.
