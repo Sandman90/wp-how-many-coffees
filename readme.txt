@@ -23,6 +23,9 @@ With this plugin you can:
 * Quantify the necessary ingredients.
 * Quantifying the length of a process to achieve a goal for each post.
 
+== Screenshots ==
+1. Quantify coffees for a task.
+
 
 == Installation ==
 * Plugin folder in the WordPress plugins folder must be `how-many-coffees`.
